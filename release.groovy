@@ -3,7 +3,7 @@ import com.library.Shared
 
 def shared = new Shared(this)
 def repoNames = ["boxfuse-sample-java-war-hello"]
-def repoOwner = "edbighead"
+def repoOwner = "rummyze"
  
 pipeline {
     agent any

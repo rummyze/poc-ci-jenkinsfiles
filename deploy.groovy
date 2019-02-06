@@ -5,7 +5,7 @@ def shared = new Shared(this)
 def versions = ["2.2.2","2.1.4","1.0.0"]
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
-def repoOwner = "rmelic"
+def repoOwner = "rummyze"
  
 pipeline {
     agent any
