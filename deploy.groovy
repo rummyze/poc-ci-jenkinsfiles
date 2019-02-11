@@ -11,6 +11,7 @@ pipeline {
     agent any
 
     parameters { 
+        choice(name: 'APP_VERSION', choices: versions, description: 'app version')
         choice(name: 'ENV', choices: envs, description: 'app version')
     }
 
