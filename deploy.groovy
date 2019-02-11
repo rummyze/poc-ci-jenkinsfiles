@@ -5,10 +5,6 @@ def shared = new Shared(this)
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
- 
-def s = APP_VERSIONS
-def m = s =~ /(\d).(\d).(\d)/
-def APP_VERSION = m[0][0]
 
 pipeline {
     agent any
