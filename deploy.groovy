@@ -7,16 +7,17 @@ def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
 def versions = shared.getversion(APP_VERSION)
 
+
 pipeline {
-    agent any
+ +   agent any
 
     parameters { 
-        choice(name: 'APP_VERSION', choices: versions, description: 'app version')
         choice(name: 'ENV', choices: envs, description: 'app version')
     }
 
     
     stages {
+
 
         stage("cleanup") {
             steps {
