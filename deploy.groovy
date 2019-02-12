@@ -9,7 +9,7 @@ def versions = shared.getversion(APP_VERSION)
 
 
 pipeline {
- +   agent any
+    agent any
 
     parameters { 
         choice(name: 'ENV', choices: envs, description: 'app version')
