@@ -2,21 +2,21 @@
 import com.library.Shared
 
 def shared = new Shared(this)
+def versions = ["2.2.2","2.1.4","1.0.0"]
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
-
-
+ 
 pipeline {
     agent any
 
     parameters { 
+        choice(name: 'APP_VERSION', choices: versions, description: 'app version')
         choice(name: 'ENV', choices: envs, description: 'app version')
     }
 
     
     stages {
-
 
         stage("cleanup") {
             steps {
@@ -32,8 +32,7 @@ pipeline {
                 stage('download service-1') {
                     steps {
                         script {
-                            def versions = shared.getversion(env.APP_VERSION)
-                            shared.downloadHelloService(versions)
+                            shared.downloadHelloService(params.APP_VERSION)
                         }
                     }
                 }
