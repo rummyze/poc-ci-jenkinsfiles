@@ -5,7 +5,6 @@ def shared = new Shared(this)
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
-def versions = shared.getversion(APP_VERSION)
 
 
 pipeline {
@@ -33,7 +32,8 @@ pipeline {
                 stage('download service-1') {
                     steps {
                         script {
-                            shared.downloadHelloService(params.versions)
+                            def versions = shared.getversion(env.APP_VERSION)
+                            shared.downloadHelloService(versions)
                         }
                     }
                 }
