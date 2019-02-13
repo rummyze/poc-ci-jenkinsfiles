@@ -2,7 +2,7 @@
 import com.library.Shared
 
 def shared = new Shared(this)
-def versions = ["2.2.2","2.1.4","1.0.0"]
+def versions = ["2.2.8","2.1.4","1.0.0"]
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
@@ -12,6 +12,7 @@ pipeline {
 
     parameters { 
         choice(name: 'APP_VERSION', choices: versions, description: 'app version')
+        choice(name: 'APP_VERSION1', choices: versions, description: 'app version')
         choice(name: 'ENV', choices: envs, description: 'app version')
     }
 
@@ -35,6 +36,12 @@ pipeline {
                             shared.downloadHelloService(params.APP_VERSION)
                         }
                     }
+                    stage('download service-2') {
+                    steps {
+                        script {
+                            shared.downloadHelloService1(params.APP_VERSION1)
+                        }
+                    }
                 }
             }
         }
@@ -42,6 +49,13 @@ pipeline {
         stage('deploy') {
             parallel {
                 stage('deploy service-1') {
+                    steps {
+                        script {
+                            shared.deployHelloService(params.ENV)
+                        }
+                    }
+                }
+                stage('deploy service-2') {
                     steps {
                         script {
                             shared.deployHelloService(params.ENV)

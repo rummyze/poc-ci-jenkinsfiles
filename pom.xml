@@ -72,7 +72,16 @@
         <weblogic.appname>hello</weblogic.appname>
         <weblogic.source>deploy/hello.war</weblogic.source>
       </properties>
+
     </profile>
+     <profile>
+      <id>service-2</id>
+      <properties>
+        <weblogic.appname>hello</weblogic.appname>
+        <weblogic.source>deploy/world.wa</weblogic.source>
+      </properties>
+    </profile>
+
 
   </profiles>
 </project>

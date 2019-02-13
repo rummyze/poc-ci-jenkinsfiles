@@ -2,7 +2,7 @@
 import com.library.Shared
 
 def shared = new Shared(this)
-def repoNames = ["boxfuse-sample-java-war-hello"]
+def repoNames = ["boxfuse-sample-java-war-hello" ,"play-java-maven"]
 def repoOwner = "rummyze"
  
 pipeline {
