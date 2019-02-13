@@ -2,7 +2,7 @@
 import com.library.Shared
 
 def shared = new Shared(this)
-def versions = ["2.2.8","2.1.4","1.0.0"]
+def versions = ["2.2.8","2.1.4","1.0.2"]
 def envs = ["ft1","ft2"]
 def repoName = "poc-ci-jenkinsfiles"
 def repoOwner = "rummyze"
