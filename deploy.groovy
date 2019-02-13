@@ -12,7 +12,7 @@ pipeline {
 
     parameters { 
         choice(name: 'APP_VERSION', choices: versions, description: 'app version')
-        choice(name: 'APP_VERSION', choices: versions, description: 'app version')    
+        choice(name: 'APP_VERSION1', choices: versions, description: 'app version')    
         choice(name: 'ENV', choices: envs, description: 'app version')
     }
 
@@ -34,6 +34,13 @@ pipeline {
                     steps {
                         script {
                             shared.downloadHelloService(params.APP_VERSION)
+                        }
+                    }
+                }
+                stage('download service-2') {
+                    steps {
+                        script {
+                            shared.downloadHelloService(params.APP_VERSION1)
                         }
                     }
                 }
