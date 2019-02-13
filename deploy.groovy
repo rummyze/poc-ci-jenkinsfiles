@@ -40,7 +40,7 @@ pipeline {
                 stage('download service-2') {
                     steps {
                         script {
-                            shared.downloadHelloService1(params.APP_VERSION1)
+                            shared.downloadHelloService(params.APP_VERSION1)
                         }
                     }
                 }
