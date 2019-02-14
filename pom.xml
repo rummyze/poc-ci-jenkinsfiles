@@ -39,6 +39,7 @@
               <upload>true</upload>
               <action>deploy</action>
               <verbose>true</verbose>
+              <usenonexclusivelock>true</usenonexclusivelock>
               <name>${weblogic.appname}</name>
             </configuration>
             <executions>
