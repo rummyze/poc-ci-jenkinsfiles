@@ -58,7 +58,7 @@ pipeline {
                 stage('deploy service-2') {
                     steps {
                         script {
-                            shared.deployHelloService1(params.ENV)
+                            shared.deployWorldService(params.ENV)
                         }
                     }
                 }
