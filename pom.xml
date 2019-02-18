@@ -39,7 +39,6 @@
               <upload>true</upload>
               <action>deploy</action>
               <verbose>true</verbose>
-              <usenonexclusivelock>true</usenonexclusivelock>
               <name>${weblogic.appname}</name>
             </configuration>
             <executions>
@@ -78,7 +77,7 @@
     <profile>
       <id>service-2</id>
       <properties>
-        <weblogic.appname>play-rest</weblogic.appname>
+        <weblogic.appname>world</weblogic.appname>
         <weblogic.source>deploy/world.jar</weblogic.source>
       </properties>
     </profile>
