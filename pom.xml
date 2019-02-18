@@ -78,7 +78,7 @@
       <id>service-2</id>
       <properties>
         <weblogic.appname>world</weblogic.appname>
-        <weblogic.source>deploy/world.jar</weblogic.source>
+        <weblogic.source>deploy/world.war</weblogic.source>
       </properties>
     </profile>
 
