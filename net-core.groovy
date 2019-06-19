@@ -8,6 +8,10 @@ pipeline {
  environment {
   dotnet = 'path\to\dotnet.exe'
  }
+ parameters { 
+        string(name: 'customersapiapp', choices: envs, description: 'app version')
+        string(name: 'customersmvcapp', choices: versions, description: 'app version')
+        string(name: 'res_group', choices: versions, description: 'app version')    }
  stages {
   stage('Checkout') {
    steps {
@@ -39,5 +43,11 @@ pipeline {
     bat "dotnet nuget push **\\nupkgs\\*.nupkg -k yourApiKey -s            http://myserver/artifactory/api/nuget/nuget-internal-stable/com/sample"
    }
   }
+  stage('deploy') {
+        azureWebAppPublish azureCredentialsId: params.azure_cred_id,
+            resourceGroup: params.res_group, appName: params.customersapiapp, sourceDirectory: "src/CustomersAPI/bin/Release/netcoreapp2.1/publish/"
+        azureWebAppPublish azureCredentialsId: params.azure_cred_id,
+            resourceGroup: params.res_group, appName: params.customersmvcapp, sourceDirectory: "src/CustomersMVC/bin/Release/netcoreapp2.1/publish/"
+   }
  }
 }
